@@ -20,7 +20,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/line', lineRouter);
 
-global.db = mongoose.createConnection(configs.mongoconfig);
+mongoose.connect(configs.mongoconfig);
 
 app.use(logger('dev'));
 app.use(express.json());

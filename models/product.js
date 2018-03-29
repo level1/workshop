@@ -11,4 +11,4 @@ let productSchema = new schema({
     createdate : Date
 });
 
-module.exports = db.module('product',productSchema);
+module.exports = mongoose.model('product',productSchema);
