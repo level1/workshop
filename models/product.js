@@ -7,7 +7,7 @@ let productSchema = new schema({
     name : String,
     type : String,
     text : String,
-    country : object,
+    country : String,
     price : Decimal128,
     createdate : Date
 });
