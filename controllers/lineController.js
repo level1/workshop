@@ -23,6 +23,12 @@ function handleEvent(event) {
     //   // ignore non-text-message event //
     //   return Promise.resolve(null);
     // }
+    if (event.type == 'postback') {
+
+        console.log(event);
+
+        return {type: 'text' , text: "จ่ายตังมา"};
+    }  
 
     //const echo = {type: 'text' , text: event.message.text};
     var echo =
