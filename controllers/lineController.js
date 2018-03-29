@@ -4,6 +4,7 @@ const configs = require('../config')
 const line = require('@line/bot-sdk')
 const lineClient = new line.Client(configs.lineconfig);
 const productModels = require('../models/product')
+const aiController = require('./aiController')
 
 function webhookImp(req,res) {
     console.log("req>>>>>>" + req.body)
@@ -23,14 +24,18 @@ function handleEvent(event) {
     //   // ignore non-text-message event //
     //   return Promise.resolve(null);
     // }
+    var convertionId = null;
+
+    if (event.type == 'text') {
+        aiController.dialogMsgf(event.message.text,convertionId)
+        .then((resutl) => {
+            let echo = {type: 'text' , text: JSON.stringify(resutl.nlp.intents)};
+            convertionId = result.conversation.id
+            return lineClient.pushMessage(event.source.userId, echo);
+        });
+    }
+
     if (event.type == 'postback') {
-
-        let data = JSON.parse(event.postback.data,(key,value) => {
-            console.log("value " + value);
-        })
-    
-        //console.log(" console.log(value)" , data.key("action")); 
-
         let echo = {type: 'text' , text: "จ่ายตังมา"};
         return lineClient.pushMessage(event.source.userId, echo);
     }  
@@ -93,8 +98,6 @@ function handleEvent(event) {
         return lineClient.pushMessage(event.source.userId, ex);
     });
 
-    
-     // return lineClient.pushMessage(event.source.userId, echo);
 
     // productModels.create({
     //     name : "Test",
