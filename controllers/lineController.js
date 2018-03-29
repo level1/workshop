@@ -27,9 +27,13 @@ function handleEvent(event) {
 
     var convertionId = null;
     if (event.type == 'message') {
+
+        console.log("event.message.text " + event.message.text)
+
         aiController.dialogMsg(event.message.text,convertionId)
+
         .then((resutl) => {
-            
+
             console.log("resutl " + resutl)
 
             let echo = {type: 'text' , text: JSON.stringify(resutl.nlp.intents)};
