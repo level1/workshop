@@ -10,9 +10,14 @@ function dialogMsgAI(text , convertionId) {
     console.log("dialogMsgAI type " + text)
     console.log("dialogMsgAI convertionId " + convertionId)
 
-    var build = new recastai.build('c875b4e00fd8253ca32eda035d121e37', 'en')
+    var build = new recastai.build('c875b4e00fd8253ca32eda035d121e37', 'th')
 
-    return build.dialog({ type: 'text', content: text}, { conversationId: converId })
+     build.dialog({ type: 'text', content: text}, { conversationId: converId })
+     .then((result) => {
+
+        console.log("result AI" + result)
+        return result;
+     })
 
 }
 

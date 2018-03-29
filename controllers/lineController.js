@@ -31,10 +31,9 @@ function handleEvent(event) {
         console.log("event.message.text " + event.message.text)
 
         aiController.dialogMsg(event.message.text,convertionId)
-        .then((resutl) => {
-            console.log("resutl " + resutl)
-
-            let echo = {type: 'text' , text: JSON.stringify(resutl.nlp.intents)};
+        .then((result) => {
+            console.log("resutl " + result)
+            let echo = {type: 'text' , text: JSON.stringify(result.nlp.intents)};
             convertionId = result.conversation.id
             return lineClient.pushMessage(event.source.userId, echo);
 
