@@ -6,6 +6,7 @@ const line = require('@line/bot-sdk')
 const lineClient = new line.Client(configs.lineconfig);
 
 function webhookImp(req,res) {
+    console.log("req>>>>>>" + req.body)
     Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
