@@ -25,13 +25,7 @@ function handleEvent(event) {
 
     const echo = {type: 'text' , text: event.message.text};
 
-    productModels.create({
-        name : "Test",
-        type : echo.type,
-        text : echo.text,
-        price : 1200.50,
-        createdate : Date.now()
-    })
+    productModels.find()
     .then((result) => {
         echo.text = JSON.stringify(result);
         return lineClient.pushMessage(event.source.userId, echo);
@@ -39,6 +33,21 @@ function handleEvent(event) {
     .catch((ex) =>{
         return lineClient.pushMessage(event.source.userId, ex);
     });
+
+    // productModels.create({
+    //     name : "Test",
+    //     type : echo.type,
+    //     text : echo.text,
+    //     price : 1200.50,
+    //     createdate : Date.now()
+    // })
+    // .then((result) => {
+    //     echo.text = JSON.stringify(result);
+    //     return lineClient.pushMessage(event.source.userId, echo);
+    // })
+    // .catch((ex) =>{
+    //     return lineClient.pushMessage(event.source.userId, ex);
+    // });
 
    
 }
