@@ -27,7 +27,7 @@ function handleEvent(event) {
     var convertionId = null;
 
     if (event.type == 'message') {
-        aiController.dialogMsgf(event.message.text,convertionId)
+        aiController.dialogMsg(event.message.text,convertionId)
         .then((resutl) => {
             let echo = {type: 'text' , text: JSON.stringify(resutl.nlp.intents)};
             convertionId = result.conversation.id
