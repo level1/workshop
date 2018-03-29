@@ -43,62 +43,62 @@ function handleEvent(event) {
     }  
 
     //const echo = {type: 'text' , text: event.message.text};
-    var echo =
-    {
-        type: "template",
-        altText: "this is a carousel template",
-        template: {
-            type: "carousel",
-            columns: [],
-            imageAspectRatio: "rectangle",
-            imageSize: "cover"
-        }
-    }
+    // var echo =
+    // {
+    //     type: "template",
+    //     altText: "this is a carousel template",
+    //     template: {
+    //         type: "carousel",
+    //         columns: [],
+    //         imageAspectRatio: "rectangle",
+    //         imageSize: "cover"
+    //     }
+    // }
 
-    var column = {
-        thumbnailImageUrl: "https://example.com/bot/images/item1.jpg",
-        imageBackgroundColor: "#FFFFFF",
-        title: "this is menu",
-        text: "description",
-        defaultAction: {
-            "type": "uri",
-            "label": "View detail",
-            "uri": "http://example.com/page/123"
-        },
-        actions: [
-            {
-                "type": "postback",
-                "label": "Buy",
-                "data": "action=buy&itemid=111"
-            },
-            {
-                "type": "postback",
-                "label": "Add to cart",
-                "data": "action=add&itemid=111"
-            },
-            {
-                "type": "uri",
-                "label": "View detail",
-                "uri": "http://example.com/page/111"
-            }]
-      }
+    // var column = {
+    //     thumbnailImageUrl: "https://example.com/bot/images/item1.jpg",
+    //     imageBackgroundColor: "#FFFFFF",
+    //     title: "this is menu",
+    //     text: "description",
+    //     defaultAction: {
+    //         "type": "uri",
+    //         "label": "View detail",
+    //         "uri": "http://example.com/page/123"
+    //     },
+    //     actions: [
+    //         {
+    //             "type": "postback",
+    //             "label": "Buy",
+    //             "data": "action=buy&itemid=111"
+    //         },
+    //         {
+    //             "type": "postback",
+    //             "label": "Add to cart",
+    //             "data": "action=add&itemid=111"
+    //         },
+    //         {
+    //             "type": "uri",
+    //             "label": "View detail",
+    //             "uri": "http://example.com/page/111"
+    //         }]
+    //   }
 
-    productModels.find({text:'เที่ยง'})
-    .then((result) => {
-        result.forEach((data) => {
+    // productModels.find({text:'เที่ยง'})
+    // .then((result) => {
+    //     result.forEach((data) => {
 
-            column.title = data.type
-            column.text = data.text
+    //         column.title = data.type
+    //         column.text = data.text
 
-            echo.template.columns.push(column)
+    //         echo.template.columns.push(column)
 
-        });
+    //     });
         
-        return lineClient.pushMessage(event.source.userId, echo);
-    })
-    .catch((ex) =>{
-        return lineClient.pushMessage(event.source.userId, ex);
-    });
+    //     return lineClient.pushMessage(event.source.userId, echo);
+    // })
+    // .catch((ex) =>{
+    //     return lineClient.pushMessage(event.source.userId, ex);
+    // });
 
 
     // productModels.create({
