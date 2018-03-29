@@ -32,6 +32,8 @@ function handleEvent(event) {
             let echo = {type: 'text' , text: JSON.stringify(resutl.nlp.intents)};
             convertionId = result.conversation.id
             return lineClient.pushMessage(event.source.userId, echo);
+        }).catch((ex) => {
+            return ex;
         });
     }
 
