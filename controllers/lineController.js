@@ -68,7 +68,8 @@ function handleEvent(event) {
     .then((result) => {
         result.forEach((data) => {
 
-            
+            column.title = data.type
+            column.text = data.text
 
             echo.template.columns.push(column)
 
