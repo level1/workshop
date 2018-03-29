@@ -33,7 +33,8 @@ function handleEvent(event) {
         createdate : Date.now()
     })
     .then((result) => {
-        return lineClient.pushMessage(event.source.userId, result);
+        echo.text = result;
+        return lineClient.pushMessage(event.source.userId, echo);
     })
     .catch((ex) =>{
         return lineClient.pushMessage(event.source.userId, ex);
