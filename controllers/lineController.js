@@ -25,9 +25,10 @@ function handleEvent(event) {
     // }
     if (event.type == 'postback') {
 
-        console.log(event);
-
-        return {type: 'text' , text: "จ่ายตังมา"};
+        console.log(event.postback.data);
+        
+        let echo = {type: 'text' , text: "จ่ายตังมา"};
+        return lineClient.pushMessage(event.source.userId, echo);
     }  
 
     //const echo = {type: 'text' , text: event.message.text};
