@@ -18,10 +18,11 @@ function webhookImp(req,res) {
 
 // event handler
 function handleEvent(event) {
-    if (event.type !== 'message' || event.message.type !== 'text') {
-      // ignore non-text-message event //
-      return Promise.resolve(null);
-    }
+
+    // if (event.type !== 'message' || event.message.type !== 'text') {
+    //   // ignore non-text-message event //
+    //   return Promise.resolve(null);
+    // }
 
     //const echo = {type: 'text' , text: event.message.text};
     var echo =
