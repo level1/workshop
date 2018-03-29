@@ -36,7 +36,7 @@ function handleEvent(event) {
         }
     }
 
-    var itemTemp =  {
+    var column = {
         thumbnailImageUrl: "https://example.com/bot/images/item1.jpg",
         imageBackgroundColor: "#FFFFFF",
         title: "this is menu",
@@ -66,12 +66,12 @@ function handleEvent(event) {
 
     productModels.find({text:'เที่ยง'})
     .then((result) => {
-
         result.forEach((data) => {
-            var item = itemTemp
-            item.type = data.type;
-            item.title = date.title;
-            echo.template.columns.push(item)
+
+            
+
+            echo.template.columns.push(column)
+
         });
         
         return lineClient.pushMessage(event.source.userId, echo);
