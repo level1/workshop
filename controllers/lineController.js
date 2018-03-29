@@ -24,7 +24,7 @@ function handleEvent(event) {
     }
 
     //const echo = {type: 'text' , text: event.message.text};
-    let echo =
+    var echo =
     {
         type: "template",
         altText: "this is a carousel template",
@@ -36,7 +36,7 @@ function handleEvent(event) {
         }
     }
 
-    let itemTemp =  {
+    var itemTemp =  {
         thumbnailImageUrl: "https://example.com/bot/images/item1.jpg",
         imageBackgroundColor: "#FFFFFF",
         title: "this is menu",
@@ -69,9 +69,8 @@ function handleEvent(event) {
 
         result.forEach((data) => {
             var item = itemTemp
-            item.title = data.type;
+            item.type = data.type;
             item.title = date.title;
-
             echo.template.columns.push(item)
         });
         
@@ -82,7 +81,7 @@ function handleEvent(event) {
     });
 
     
-      return lineClient.pushMessage(event.source.userId, echo);
+     // return lineClient.pushMessage(event.source.userId, echo);
 
     
 
