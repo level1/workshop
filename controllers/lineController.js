@@ -26,10 +26,10 @@ function handleEvent(event) {
     if (event.type == 'postback') {
 
         let data = JSON.parse(event.postback.data,(key,value) => {
-            console.log("value" + value);
+            console.log("value " + value);
         })
     
-        console.log(" console.log(value)" , data.key("action")); 
+        //console.log(" console.log(value)" , data.key("action")); 
 
         let echo = {type: 'text' , text: "จ่ายตังมา"};
         return lineClient.pushMessage(event.source.userId, echo);
