@@ -25,7 +25,8 @@ function handleEvent(event) {
     // }
     console.log("event.type " + event.type)
 
-    var convertionId = null;
+    var convertionId = "Lv1";
+    
     if (event.type == 'message') {
 
         console.log("event.message.text " + event.message.text)
