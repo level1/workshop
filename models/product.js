@@ -8,7 +8,6 @@ let productSchema = new schema({
     type : String,
     text : String,
     country : String,
-    price : Decimal128,
     createdate : Date
 });
 
