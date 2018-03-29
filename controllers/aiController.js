@@ -1,4 +1,6 @@
 
+'use strict';
+
 var recastai = require('recastai')
 
 function dialogMsgAI(text , convertionId) {
