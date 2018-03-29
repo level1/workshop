@@ -85,10 +85,6 @@ function handleEvent(event) {
     
      // return lineClient.pushMessage(event.source.userId, echo);
 
-    
-
-    
-
     // productModels.create({
     //     name : "Test",
     //     type : echo.type,
