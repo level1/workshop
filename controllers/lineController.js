@@ -7,7 +7,6 @@ const productModels = require('../models/product')
 const aiController = require('./aiController')
 
 function webhookImp(req,res) {
-    console.log("req>>>>>>" + req.body)
     Promise
     .all(req.body.events.map(handleEvent))
     .then((result) => res.json(result))
@@ -24,8 +23,9 @@ function handleEvent(event) {
     //   // ignore non-text-message event //
     //   return Promise.resolve(null);
     // }
-    var convertionId = null;
+    console.log("event.type " + event.type)
 
+    var convertionId = null;
     if (event.type == 'message') {
         aiController.dialogMsg(event.message.text,convertionId)
         .then((resutl) => {
