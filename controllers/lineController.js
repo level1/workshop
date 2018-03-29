@@ -24,8 +24,9 @@ function handleEvent(event) {
     //   return Promise.resolve(null);
     // }
     if (event.type == 'postback') {
-
-        console.log(event.postback.data);
+        
+        let data = JSON.parse(event.postback.data)
+        console.log(data);
         
         let echo = {type: 'text' , text: "จ่ายตังมา"};
         return lineClient.pushMessage(event.source.userId, echo);
